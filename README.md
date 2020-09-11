@@ -24,4 +24,3 @@ HOW TO USE THE RAYTRACER:
   
 By Tomáš Makyča 10. 9. 2020
 
-https://github.com/MakyG/raytracer/blob/master/images/TerminalRaytracer.png
