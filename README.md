@@ -23,3 +23,5 @@ HOW TO USE THE RAYTRACER:
   - open output.bmp file with image viewer (GIMP is recommended)
   
 By Tomáš Makyča 10. 9. 2020
+
+https://github.com/MakyG/raytracer/blob/master/images/TerminalRaytracer.png
