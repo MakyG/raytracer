@@ -65,6 +65,7 @@ void Menu::RenderObjects() {
 
 void Menu::AddObject() {
 	system("clear");
+    std::cout << "UNFINISHED!" << std::endl;
 	std::cout << "Main menu: " << std::endl;
 	std::cout << "1. Add plane" << std::endl;
 	std::cout << "2. Add triangle" << std::endl;
