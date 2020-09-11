@@ -22,8 +22,8 @@ HOW TO USE THE RAYTRACER:
   - in console interface, run Render / Render All
   - open output.bmp file with image viewer (GIMP is recommended)
   
-![](raytracer/images/TerminalRaytracer.png)
-![](raytracer/images/output.png )
+![](images/TerminalRaytracer.png)
+![](images/output.png)
    
 By Tomáš Makyča 10. 9. 2020
 
