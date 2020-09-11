@@ -21,9 +21,7 @@ HOW TO USE THE RAYTRACER:
   - run command ./a.out
   - in console interface, run Render / Render All
   - open output.bmp file with image viewer (GIMP is recommended)
-  
-![alt text](https://github.com/MakyG/raytracer/blob/master/images/TerminalRaytracer.png
-![alt text](https://github.com/MakyG/raytracer/blob/master/images/output.png
-  
+  https://github.com/MakyG/raytracer/blob/master/images/TerminalRaytracer.png?raw=true
+  https://github.com/MakyG/raytracer/blob/master/images/output.png?raw=true
 By Tomáš Makyča 10. 9. 2020
 
