@@ -8,7 +8,8 @@ Release:	20.04
 Codename:	focal
 
 HOW TO USE THE RAYTRACER:
-  - locate the simple_raytracer/build folder
+  - create a directory build: mkdir build
+  - locate a directory build: cd build
   - run command: cmake ..
   - run command: cmake --build .
   - run command: ./simple_raytracer
