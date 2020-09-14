@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "Raytracer.h"
 
 // CLAMP VALUE TO MIN IF VALUE IS SMALLER THAN MIN, MAX IF VALUE IS BIGGER THAN MAX
@@ -78,57 +79,14 @@ void Raytracer::Render() {
             Vector hitPoint = p0 + (p1 - p0) * u + (p2 - p0) * v; // Point of intersection
             Vector rayDirection = hitPoint - cameraPosition;
             
-            // CREATE RAY
-            
-            Ray ray = Ray(cameraPosition, rayDirection, 1000000);
-            
-            // SPHERE COLOR CALCULATION
-            
-            if (ray.RaySphereIntersection(sphere) == true) {
-                Vector hitPoint = ray.origin + ray.direction * ray.length;
-                Vector L = light.center - hitPoint;
-                Vector N = sphere.getNormal(hitPoint);
-                double dt = ray.Dot(L.normalize(), N.normalize());
-                
-                pix_col = (sphere.color + light.color * dt);
-                clamp255(pix_col);
+            for(unsigned int i = 0; i < objects.size(), i++){
+                Ray ray = Ray(cameraPosition, rayDirection, 1000000);
+                int closestIndex = 999;
+                double oldLength = ray.length;
+                if(objects[i].intersects(ray)){
+                    
+                }
             }
-			
-			// TRIANGLE COLOR CALCULATION
-			
-            else if (ray.RayTriangleIntersection(triangle, ray) == true) {
-                double global_light_intensity = 0;
-                Vector obj_color = triangle.color;
-                pix_col = Vector(obj_color.x * global_light_intensity, obj_color.y * global_light_intensity, obj_color.z * global_light_intensity);
-                
-                Vector diffuse_light_normal = (hitPoint + triangle.getNormal() * 1e-3);
-                Vector light_direction = (light.center - hitPoint).normalize();
-                
-                double dotProduct = ray.Dot(diffuse_light_normal, light_direction);
-				double light_strength = basicClamp(dotProduct, 0, 1);
-                Vector multiplicator = Vector(light.color.x / 255, light.color.y / 255, light.color.z / 255) * light_strength;
-                Vector object_color = triangle.color;
-                Vector add_color = Vector(object_color.x * multiplicator.x, object_color.y * multiplicator.y, object_color.z * multiplicator.z);
-                pix_col = pix_col + add_color;
-            }
-            
-            // PLANE COLOR CALCULATION
-			
-			else if (ray.RayPlaneIntersection(plane, ray) == true) {
- 				double global_light_intensity = 0.25;
-                Vector obj_color = plane.color;
-                pix_col = Vector(obj_color.x * global_light_intensity, obj_color.y * global_light_intensity, obj_color.z * global_light_intensity);
-                
-                Vector diffuse_light_normal = (hitPoint + plane.getNormal()).normalize();
-                Vector light_direction = (light.center - hitPoint).normalize();
-                
-                double dotProduct = ray.Dot(diffuse_light_normal, light_direction);
-				double light_strength = basicClamp(dotProduct, 0, 1);
-                Vector multiplicator = Vector(light.color.x / 255, light.color.y / 255, light.color.z / 255) * light_strength;
-                Vector object_color = plane.color;
-                Vector add_color = Vector(object_color.x * multiplicator.x, object_color.y * multiplicator.y, object_color.z * multiplicator.z);
-                pix_col = pix_col + add_color;
-			}
 			
 			// RENDER TO FILE PIXEL BY PIXEL
 			
